@@ -10,9 +10,11 @@
 #define SLAVE 1
 
 /*
-Simple MPI+OpenMP+CUDA Integration example
-Initially the array of size ARR_SIZE is known for the process 0.
-It sends the half of the array to the process 1.
+Simple MPI+OpenMP+CUDA Integration
+The MASTER process initially array sized ARR_SIZE and set it with random values.
+It sends the half of the array to the process 1 (SLAVE).
+Both will calculate the HISTOGRAM of thier part using CUDA.
+The MASTER process will sum the histograms and will run two tests to check for correctness. 
 */
 
 int main(int argc, char *argv[])
